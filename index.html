@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Campos - Redadora & Copywriter Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.7;
+            color: #5a5250;
+            background: #faf8f5;
+        }
+
+        :root {
+            --dark-brown: #4a3f38;
+            --medium-brown: #8b7355;
+            --light-brown: #a89787;
+            --warm-beige: #e8dfd7;
+            --cream: #f5f2ed;
+            --soft-grey: #9b9490;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5a5250 0%, #3d3530 100%);
+            color: var(--cream);
+            padding: 100px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(232, 223, 215, 0.05);
+            border-radius: 50%;
+        }
+
+        header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header .tagline {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 18px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 25px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            background: var(--cream);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+            margin: 0 35px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--medium-brown);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section {
+            background: white;
+            margin: 60px auto;
+            padding: 70px 60px;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .section h2 {
+            color: var(--dark-brown);
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--medium-brown);
+        }
+
+        .section p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: #666;
+        }
+
+        .about-intro {
+            font-size: 18px;
+            font-family: 'Georgia', serif;
+            color: var(--dark-brown);
+            margin-bottom: 30px;
+            line-height: 1.9;
+        }
+
+        .highlight {
+            color: var(--medium-brown);
+            font-weight: 600;
+        }
+
+        .numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .number-box {
+            text-align: center;
+            padding: 35px;
+            background: var(--warm-beige);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .number-box:hover {
+            background: var(--light-brown);
+            transform: translateY(-5px);
+        }
+
+        .number-box .big {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 12px;
+        }
+
+        .number-box .label {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .specialty-card {
+            background: var(--cream);
+            padding: 35px;
+            border-radius: 6px;
+            border-left: 4px solid var(--medium-brown);
+            transition: all 0.3s ease;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .specialty-card:hover {
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            background: var(--warm-beige);
+        }
+
+        .specialty-card h4 {
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .specialty-card p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .article-card {
+            background: white;
+            border: 1px solid #e8dfd7;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .article-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: translateY(-10px);
+            border-color: var(--medium-brown);
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%);
+            color: var(--cream);
+            padding: 40px 30px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-header h3 {
+            font-size: 20px;
+            margin: 0;
+            line-height: 1.5;
+            color: var(--cream);
+        }
+
+        .article-content {
+            padding: 35px;
+        }
+
+        .article-type {
+            display: inline-block;
+            background: var(--warm-beige);
+            color: var(--dark-brown);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .article-content p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .article-content .word-count {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+            color: var(--soft-grey);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .btn-view {
+            background: var(--dark-brown);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            font-family: 'Segoe UI', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .btn-view:hover {
+            background: var(--medium-brown);
+            transform: translateX(3px);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #3d3530 100%);
+            color: var(--cream);
+            padding: 80px 60px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-section h2 {
+            color: var(--cream);
+            border-bottom: 3px solid var(--warm-beige);
+            margin-bottom: 30px;
+        }
+
+        .contact-section h2::after {
+            background: var(--warm-beige);
+        }
+
+        .contact-section p {
+            color: var(--cream);
+            opacity: 0.9;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 16px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .contact-item {
+            background: rgba(232, 223, 215, 0.08);
+            padding: 30px;
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(232, 223, 215, 0.1);
+        }
+
+        .contact-item h4 {
+            margin-bottom: 12px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .btn-contact {
+            background: var(--warm-beige);
+            color: var(--dark-brown);
+            padding: 16px 45px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: 'Segoe UI', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .btn-contact:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: var(--dark-brown);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+            border-top: 1px solid var(--medium-brown);
+        }
+
+        footer a {
+            color: var(--warm-beige);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 25px;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            .section {
+                padding: 40px 25px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            nav a {
+                display: block;
+                margin: 12px 0;
+            }
+
+            .contact-section {
+                padding: 50px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Larissa Campos</h1>
+        <div class="tagline">Redadora & Copywriter</div>
+        <p>
+            Especialista em copywriting que vende, estratégia de conteúdo e textos que transformam 
+            leitores em clientes. Trabalho com pequenas empresas e empreendedores que querem crescer com palavras certas.
+        </p>
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="container">
+
+        <section id="sobre" class="section">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="larissa.jpg" alt="Larissa Campos" style="width: 220px; height: 280px; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); object-fit: cover;">
+            </div>
+            <h2>Sobre</h2>
+            <p class="about-intro">
+                Olá. Sou Larissa Campos, redadora freelancer especializada em <span class="highlight">copywriting estratégico</span> 
+                e textos que geram resultados mensuráveis.
+            </p>
+
+            <p>
+                Comecei minha jornada em redação quando percebi um problema óbvio: a maioria das empresas não sabe comunicar 
+                seu verdadeiro valor. Elas têm produtos bons, mas textos ruins. Resultado? Perdem clientes.
+            </p>
+
+            <p>
+                Meu trabalho é resolver isso. <span class="highlight">Transformo ideias em palavras que vendem</span>. 
+                Seja um artigo que ranqueia no Google, uma página de vendas que converte, uma sequência de emails que 
+                nutre leads, ou copywriting estratégico para campanhas — eu crio textos que funcionam.
+            </p>
+
+            <p>
+                Acredito que bom copywriting não é manipulação. É <span class="highlight">entender profundamente o cliente, 
+                seu problema real, e comunicar a solução com clareza, honestidade e persuasão</span>.
+            </p>
+
+            <div class="numbers">
+                <div class="number-box">
+                    <div class="big">3</div>
+                    <div class="label">Artigos de Portfolio</div>
+                </div>
+                <div class="number-box">
+                    <div class="big">100%</div>
+                    <div class="label">Qualidade Garantida</div>
+                </div>
+                <div class="number-box">
+                    <div class="big">São José</div>
+                    <div class="label">SC — Brasil</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="especialidades" class="section">
+            <h2>Especialidades</h2>
+
+            <div class="specialties">
+                <div class="specialty-card">
+                    <h4>Copywriting Estratégico</h4>
+                    <p>Headlines que prendem. Emails que vendem. Landing pages que convertem. Textos persuasivos que funcionam.</p>
+                </div>
+
+                <div class="specialty-card">
+                    <h4>Conteúdo de Marketing Digital</h4>
+                    <p>Estratégia de conteúdo. Blog posts. Artigos SEO. Textos que educam e atraem o cliente certo.</p>
+                </div>
+
+                <div class="specialty-card">
+                    <h4>Email Marketing</h4>
+                    <p>Sequências de email que nutrem. Copy para newsletters. Campanhas que geram vendas repetidas.</p>
+                </div>
+
+                <div class="specialty-card">
+                    <h4>Sales Letters & Copy Longo</h4>
+                    <p>Cartas de venda que vendem. Copy longo estratégico. Textos que movem a decisão de compra.</p>
+                </div>
+
+                <div class="specialty-card">
+                    <h4>Descrições de Produtos</h4>
+                    <p>Textos que vendem produtos. Descrições que destacam benefícios. Copy que aumenta conversão.</p>
+                </div>
+
+                <div class="specialty-card">
+                    <h4>Gestão Editorial</h4>
+                    <p>Calendário editorial. Planejamento de conteúdo. Direção criativa. Consistência estratégica.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <h2>Portfólio</h2>
+            <p style="margin-bottom: 40px; font-family: 'Segoe UI', sans-serif; font-size: 15px;">
+                Estes são alguns dos meus trabalhos mais recentes. Cada artigo foi criado com pesquisa profunda, 
+                honestidade editorial e foco em entregar valor real para quem lê. Clique em qualquer um para ler o artigo completo.
+            </p>
+
+            <div class="articles">
+                <div class="article-card">
+                    <div class="article-header">
+                        <h3>3 Gatilhos Psicológicos Que Funcionam de Verdade em Copywriting</h3>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-type">Copywriting</div>
+                        <p>Análise profunda dos 3 gatilhos psicológicos mais eficazes em copywriting, baseado em ciência comportamental, com exemplos reais e aplicação prática.</p>
+                        <div class="word-count">~2.000 palavras</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-header">
+                        <h3>Como Pequenas Empresas Ganham Clientes Sem Publicidade Paga</h3>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-type">Marketing Digital</div>
+                        <p>Estratégia prática de crescimento orgânico. Como ganhar clientes sem gastar em publicidade, usando apenas copywriting bem feito.</p>
+                        <div class="word-count">~2.200 palavras</div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-header">
+                        <h3>Quanto Cobrar Como Redador Freelancer em 2026</h3>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-type">Guia Prático</div>
+                        <p>Tabelas reais de preços. Cálculos práticos. Estratégias comprovadas para cobrar o valor justo e escalar sua renda como redador.</p>
+                        <div class="word-count">~2.000 palavras</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--warm-beige); border-left: 4px solid var(--medium-brown); padding: 25px; margin-top: 40px; border-radius: 4px; text-align: center; font-family: 'Segoe UI', sans-serif;">
+                <p style="color: var(--dark-brown); font-size: 15px; margin: 0;">
+                    <strong>Os artigos completos estão em páginas separadas.</strong><br>
+                    Para ler cada artigo, entre em contato comigo via email ou WhatsApp e solicite o link específico do artigo desejado.
+                </p>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <h2>Vamos Conversar?</h2>
+            <p>
+                Se você precisa de textos que realmente vendem, de estratégia de conteúdo ou de copywriting 
+                que funciona, vamos conversar. Estou pronta para ajudar seu negócio a crescer.
+            </p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>camposdasilval@icloud.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>WhatsApp</h4>
+                    <p>(48) 99931-1801</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Localização</h4>
+                    <p>São José, SC — Brasil</p>
+                </div>
+            </div>
+
+            <a href="mailto:camposdasilval@icloud.com" class="btn-contact">Enviar Email</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Larissa Campos. Todos os direitos reservados. | 
+        <a href="mailto:camposdasilval@icloud.com">Entre em contato</a></p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const section = document.querySelector(href);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
