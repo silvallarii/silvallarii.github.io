@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Campos - Redadora & Copywriter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #5a5250;
+            background: #faf8f5;
+        }
+
+        :root {
+            --dark-brown: #4a3f38;
+            --medium-brown: #8b7355;
+            --warm-beige: #e8dfd7;
+            --cream: #f5f2ed;
+        }
+
+        header {
+            background: linear-gradient(135deg, #5a5250 0%, #3d3530 100%);
+            color: var(--cream);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 15px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background: var(--cream);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--medium-brown);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: var(--dark-brown);
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--medium-brown);
+            padding-bottom: 10px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .photo {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .photo img {
+            width: 200px;
+            height: 250px;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #3d3530 100%);
+            color: var(--cream);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-box a {
+            color: var(--warm-beige);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            color: white;
+        }
+
+        footer {
+            background: var(--dark-brown);
+            color: var(--cream);
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .container {
+                padding: 20px 10px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Larissa Campos</h1>
+        <p>Redadora Freelancer & Copywriter Especializada em Marketing Digital</p>
+    </header>
+
+    <nav>
+        <a onclick="mostrarSecao('sobre')">Sobre</a>
+        <a onclick="mostrarSecao('artigo1')">Artigo 1</a>
+        <a onclick="mostrarSecao('artigo2')">Artigo 2</a>
+        <a onclick="mostrarSecao('artigo3')">Artigo 3</a>
+        <a onclick="mostrarSecao('contato')">Contato</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- SOBRE -->
+        <div id="sobre" class="section active">
+            <h2>Sobre Mim</h2>
+            
+            <div class="photo">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwDAwwGEAwMFhYWFhYWFhcWFhcWFhYWFxcXFxcXGBcXGBcYGBgYGBgYGBgYGBj/2wBDAQICAgICAwUDAwUYCAcIGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAC4ANwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z" alt="Larissa Campos">
+            </div>
+
+            <p><strong>Olá! Sou Larissa Campos, redadora freelancer especializada em copywriting estratégico e textos que geram resultados mensuráveis.</strong></p>
+
+            <p>Comecei minha jornada em redação quando percebi um problema óbvio: a maioria das empresas não sabe comunicar seu verdadeiro valor. Elas têm produtos bons, mas textos ruins. Resultado? Perdem clientes.</p>
+
+            <p>Meu trabalho é resolver isso. <strong>Transformo ideias em palavras que vendem.</strong> Seja um artigo que ranqueia no Google, uma página de vendas que converte, uma sequência de emails que nutre leads, ou copywriting estratégico para campanhas — eu crio textos que funcionam.</p>
+
+            <p>Acredito que bom copywriting não é manipulação. É <strong>entender profundamente o cliente, seu problema real, e comunicar a solução com clareza, honestidade e persuasão.</strong></p>
+
+            <h3 style="color: var(--medium-brown); margin-top: 30px;">Especialidades:</h3>
+            <p>✓ Copywriting Estratégico<br>
+            ✓ Marketing Digital<br>
+            ✓ Email Marketing<br>
+            ✓ Blog Posts & Artigos SEO<br>
+            ✓ Landing Pages<br>
+            ✓ Descrição de Produtos</p>
+
+            <div class="contact-box">
+                <h3>Pronto para Trabalhar Juntos?</h3>
+                <p>Email: <a href="mailto:camposdasilval@icloud.com">camposdasilval@icloud.com</a></p>
+                <p>WhatsApp: <a href="https://wa.me/5548999311801">+55 (48) 99931-1801</a></p>
+            </div>
+        </div>
+
+        <!-- ARTIGO 1 -->
+        <div id="artigo1" class="section">
+            <h2>3 Gatilhos Psicológicos Que Funcionam de Verdade em Copywriting</h2>
+            
+            <p><strong>Você escreve textos bons, mas ninguém compra.</strong></p>
+
+            <p>A razão provavelmente não é que seu texto é ruim. É que você está ignorando três gatilhos psicológicos que são <strong>comprovados pela ciência e usados por copywriters profissionais há décadas.</strong></p>
+
+            <h3>1. URGÊNCIA</h3>
+            <p>Nosso cérebro toma decisões de duas formas: racional (lento) e automática (rápido). Quando criamos urgência, ativamos a segunda forma. O leitor sente que uma oportunidade pode desaparecer e decide rápido.</p>
+            <p><strong>Como aplicar:</strong> Use prazos reais e específicos: "Oferta válida apenas até amanhã às 23h59", "Apenas 5 vagas disponíveis", "Esse bônus sai da página na próxima quinta-feira".</p>
+
+            <h3>2. PROVA SOCIAL</h3>
+            <p>Ninguém quer ser o primeiro a confiar em você. Se outras pessoas já compraram e aprovaram, você parece mais confiável.</p>
+            <p><strong>Como usar:</strong> Depoimentos autênticos, números reais de clientes, avaliações, case studies, logos de empresas que trabalhou.</p>
+
+            <h3>3. RECIPROCIDADE</h3>
+            <p>Quando você recebe algo de alguém, sente uma obrigação de retribuir. Se você quer que alguém compre, comece dando valor.</p>
+            <p><strong>Como colocar em prática:</strong> eBook prático, planilha que poupa tempo, mini-curso, dica acionável que pessoas possam aplicar em 10 minutos.</p>
+
+            <p style="margin-top: 30px; padding: 20px; background: var(--warm-beige); border-left: 4px solid var(--medium-brown); border-radius: 4px;"><strong>A Verdade:</strong> Esses três gatilhos funcionam quando usados com honestidade. Um texto manipulador vende uma vez. Um texto honesto com bons gatilhos vende e gera clientes satisfeitos que indicam você.</p>
+        </div>
+
+        <!-- ARTIGO 2 -->
+        <div id="artigo2" class="section">
+            <h2>Como Pequenas Empresas Ganham Clientes Sem Publicidade Paga</h2>
+            
+            <p><strong>Você provavelmente acredita que precisa gastar com publicidade para crescer.</strong></p>
+
+            <p>A verdade é diferente: <strong>pequenas empresas ganham clientes sem publicidade o tempo todo.</strong> E a ferramenta que faz isso funcionar chama-se copywriting.</p>
+
+            <h3>Por Que Copywriting Funciona Melhor</h3>
+            <p>Copywriting é grátis. Você não paga por clique. Um texto bem escrito que aparece no seu site, email, rede social <strong>trabalha para você 24 horas, gratuitamente, infinitamente.</strong></p>
+
+            <p>Se você recebe 100 visitas/mês no seu site: com conversão ruim (1%) = 1 cliente/mês. Com copywriting bom (3-5%) = 3-5 clientes/mês. Com copywriting excelente (7-10%) = 7-10 clientes/mês.</p>
+
+            <p>De 12 para 84 clientes por ano, sem gastar nada em publicidade.</p>
+
+            <h3>Os 4 Pilares</h3>
+            <p><strong>1. CLAREZA:</strong> O cliente entende o que você faz em 5 segundos?</p>
+            <p><strong>2. RELEVÂNCIA:</strong> Você está falando para o cliente certo?</p>
+            <p><strong>3. CONFIANÇA:</strong> Por que o cliente deveria acreditar em você?</p>
+            <p><strong>4. CTA CLARO:</strong> Qual é o próximo passo?</p>
+
+            <p style="margin-top: 30px;"><strong>Os 3 Lugares Onde Funciona:</strong><br>
+            • Seu Site/Landing Page<br>
+            • Seus Emails<br>
+            • Seus Textos nas Redes Sociais</p>
+        </div>
+
+        <!-- ARTIGO 3 -->
+        <div id="artigo3" class="section">
+            <h2>Quanto Cobrar Como Redador Freelancer em 2026</h2>
+            
+            <p><strong>Você está começando como redator freelancer e não sabe quanto cobrar.</strong></p>
+
+            <p>Este guia te mostra <strong>exatamente quanto o mercado paga em 2026,</strong> com dados reais que você pode usar hoje mesmo.</p>
+
+            <h3>Método 1: Cobrar Por Palavra (Mais Comum)</h3>
+            <p>• <strong>Iniciante (0-1 ano):</strong> R$ 0,05 - R$ 0,10 por palavra<br>
+            • <strong>Junior (1-2 anos):</strong> R$ 0,10 - R$ 0,20 por palavra<br>
+            • <strong>Pleno (2-5 anos):</strong> R$ 0,20 - R$ 0,40 por palavra<br>
+            • <strong>Senior (5+ anos):</strong> R$ 0,40 - R$ 1,00+ por palavra</p>
+
+            <h3>Fatores Que Aumentam Seu Preço</h3>
+            <p>• <strong>Especialidade:</strong> Se você escreve sobre tema específico<br>
+            • <strong>Portfólio Comprovado:</strong> Se pode mostrar resultados<br>
+            • <strong>SEO/Otimização:</strong> Se otimiza para Google<br>
+            • <strong>Revisão/Pesquisa:</strong> Se requer pesquisa profunda<br>
+            • <strong>Urgência:</strong> Se cliente precisa rápido</p>
+
+            <h3>Método 2: Cobrar Por Projeto</h3>
+            <p>Melhor para textos criativos (landing pages, copywriting):<br>
+            • Email de venda: R$ 200-5.000<br>
+            • Post de blog: R$ 150-3.000<br>
+            • Página de vendas: R$ 800-15.000<br>
+            • Sales letter: R$ 1.000-25.000</p>
+
+            <p style="margin-top: 30px; padding: 20px; background: var(--warm-beige); border-left: 4px solid var(--medium-brown); border-radius: 4px;"><strong>O Preço Certo:</strong> Não existe preço universal. Existe o preço que você respeita e o cliente respeita. Comece baixo, construa portfólio, aumente gradualmente, especialize-se.</p>
+        </div>
+
+        <!-- CONTATO -->
+        <div id="contato" class="section">
+            <h2>Entre em Contato</h2>
+            
+            <div class="contact-box">
+                <h3 style="color: var(--cream); margin-bottom: 20px;">Vamos Trabalhar Juntos?</h3>
+                
+                <p style="margin-bottom: 20px;">Se você precisa de textos que realmente vendem, de estratégia de conteúdo ou de copywriting que funciona, vamos conversar. Estou pronta para ajudar seu negócio a crescer.</p>
+
+                <p><strong>Email:</strong><br>
+                <a href="mailto:camposdasilval@icloud.com">camposdasilval@icloud.com</a></p>
+
+                <p style="margin-top: 15px;"><strong>WhatsApp:</strong><br>
+                <a href="https://wa.me/5548999311801">+55 (48) 99931-1801</a></p>
+
+                <p style="margin-top: 15px;"><strong>Localização:</strong><br>
+                São José, SC — Brasil</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Larissa Campos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function mostrarSecao(id) {
+            // Esconder todas as seções
+            const secoes = document.querySelectorAll('.section');
+            secoes.forEach(secao => {
+                secao.classList.remove('active');
+            });
+
+            // Mostrar seção clicada
+            document.getElementById(id).classList.add('active');
+            
+            // Scroll para o topo
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
